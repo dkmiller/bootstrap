@@ -1,7 +1,7 @@
 <#
-Run this using:
+In an elevated shell, run:
 
-iex ((New-Object System.Net.WebClient).DownloadString('https://aka.ms/danmill/bootstrap'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://aka.ms/danmill/bootstrap'))
 #>
 
 # Follow: https://chocolatey.org/docs/installation.
