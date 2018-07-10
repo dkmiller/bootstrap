@@ -9,7 +9,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 # See https://chocolatey.org/packages/<package name> for more details on any of these.
-choco install --yes anaconda3 --params '/InstallationType:AllUsers /AddToPath /RegisterPython'
+choco install --yes anaconda3 --params '/InstallationType:AllUsers /AddToPath:1 /RegisterPython:1'
 choco install --yes googlechrome
 choco install --yes docker-for-windows
 choco install --yes fiddler
