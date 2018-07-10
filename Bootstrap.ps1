@@ -9,4 +9,4 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 
 # https://chocolatey.org/packages/linqpad
 Write-Host 'Installing LINQPad ...'
-choco install linqpad
+choco install --verbose --yes linqpad
