@@ -5,6 +5,9 @@ In an elevated shell, run:
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://aka.ms/danmill/bootstrap'))
 #>
 
+# Fail on an error.
+$ErrorActionPreference = 'Stop'
+
 # Follow: https://chocolatey.org/docs/installation.
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
