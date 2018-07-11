@@ -18,10 +18,11 @@ choco install --yes --fail-on-standard-error anaconda3 --params '/InstallationTy
 choco install --yes --fail-on-standard-error googlechrome
 choco install --yes --fail-on-standard-error docker-for-windows
 choco install --yes --fail-on-standard-error fiddler
-choco install --yes --fail-on-standard-error git.install --params '/SChannel'
+choco install --yes --fail-on-standard-error git --params '/SChannel'
 choco install --yes --fail-on-standard-error ilspy
 choco install --yes --fail-on-standard-error jdk8
 choco install --yes --fail-on-standard-error linqpad
+# choco install --yes --fail-on-standard-error microsoft-teams
 # choco install --yes --fail-on-standard-error office365proplus
 choco install --yes --fail-on-standard-error dotnetcore-sdk
 choco install --yes --fail-on-standard-error netfx-4.7.1-devpack
