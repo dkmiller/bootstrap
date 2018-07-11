@@ -29,4 +29,4 @@ choco install --yes --fail-on-standard-error netfx-4.7.1-devpack
 choco install --yes --fail-on-standard-error r.project
 choco install --yes --fail-on-standard-error r.studio
 choco install --yes --fail-on-standard-error vscode --params '/NoDesktopIcon /NoQuickLaunchIcon'
-choco install --yes --fail-on-standard-error visualstudio2017enterprise
+choco install --yes --fail-on-standard-error visualstudio2017enterprise --params '--allWorkloads --includeRecommended --includeOptional --passive'
