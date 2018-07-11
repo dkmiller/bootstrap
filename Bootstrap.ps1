@@ -22,7 +22,7 @@ choco install --yes --fail-on-standard-error git --params '/SChannel'
 choco install --yes --fail-on-standard-error ilspy
 choco install --yes --fail-on-standard-error jdk8
 choco install --yes --fail-on-standard-error linqpad
-# choco install --yes --fail-on-standard-error microsoft-teams
+choco install --yes --fail-on-standard-error microsoft-teams
 # choco install --yes --fail-on-standard-error office365proplus
 choco install --yes --fail-on-standard-error dotnetcore-sdk
 choco install --yes --fail-on-standard-error netfx-4.7.1-devpack
