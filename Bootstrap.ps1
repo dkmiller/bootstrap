@@ -1,8 +1,10 @@
 <#
 This script may be reached via: https://aka.ms/danmill/bootstrap .
 
-In an elevated shell, run:
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://aka.ms/danmill/bootstrap'))
+In an elevated shell, execute the following command to download and
+run this script:
+
+Set-ExecutionPolicy Bypass -Scope Process -Force; . { iwr -useb https://aka.ms/danmill/bootstrap } | iex
 #>
 
 # Fail on an error.
