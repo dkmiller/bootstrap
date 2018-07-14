@@ -15,6 +15,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 
 # See https://chocolatey.org/packages/<package name> for more details on any of these.
 choco install --yes --fail-on-standard-error anaconda3 --params '/InstallationType:AllUsers /AddToPath:1 /RegisterPython:1'
+choco install --yes --fail-on-standard-error azure-cli
 choco install --yes --fail-on-standard-error googlechrome
 choco install --yes --fail-on-standard-error docker-for-windows
 choco install --yes --fail-on-standard-error fiddler
