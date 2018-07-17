@@ -30,7 +30,10 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
     'office365proplus',
     'r.project',
     'r.studio',
-    'vscode'
+    'vscode',
+    'vscode-csharp',
+    'vscode-docker',
+    'vscode-powershell'
 ) | ForEach-Object {
     choco install --yes --fail-on-standard-error $_
     refreshenv
