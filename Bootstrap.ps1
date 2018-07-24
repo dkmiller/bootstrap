@@ -10,6 +10,25 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iwr https://aka.ms/danmill/boo
 # Fail on an error.
 $ErrorActionPreference = 'Stop'
 
+# Remove bloatware.
+@(
+    'bubblewitch',
+    'candycrush',
+    'disney',
+    'hiddencity',
+    'officehub',
+    'getstarted',
+    'zunemusic',
+    'windowsmaps',
+    'solitairecollection',
+    'zunevideo',
+    'bingnews',
+    'bingweather',
+    'xboxapp'
+) | ForEach-Object {
+    Get-AppxPackage "*$_*" | Remove-AppxPackage -ErrorAction SilentlyContinue
+}
+
 # Follow: https://chocolatey.org/docs/installation.
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
@@ -24,6 +43,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
     'fiddler',
     'git',
     'ilspy',
+    'intellijidea-community',
     'jdk8',
     'linqpad',
     'microsoft-teams',
@@ -42,21 +62,3 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 
 choco install --yes --fail-on-standard-error anaconda3 --params '/InstallationType:AllUsers /AddToPath:1 /RegisterPython:1'
 choco install --yes --fail-on-standard-error visualstudio2017enterprise --params '--allWorkloads --includeRecommended --includeOptional --passive'
-
-@(
-    'bubblewitch',
-    'candycrush',
-    'disney',
-    'hiddencity',
-    'officehub',
-    'getstarted',
-    'zunemusic',
-    'windowsmaps',
-    'solitairecollection',
-    'zunevideo',
-    'bingnews',
-    'bingweather',
-    'xboxapp'
-) | ForEach-Object {
-    Get-AppxPackage "*$_*" | Remove-AppxPackage -ErrorAction SilentlyContinue
-}
