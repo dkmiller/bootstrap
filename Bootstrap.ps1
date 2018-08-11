@@ -34,6 +34,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 
 # See https://chocolatey.org/packages/<package name> for more details on any of these.
 @(
+    'adobereader',
     'azure-cli',
     'docfx',
     'docker-for-windows',
