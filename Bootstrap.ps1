@@ -47,6 +47,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
     'linqpad',
     'microsoft-teams',
     'netfx-4.7.1-devpack',
+    'nugetpackageexplorer',
     'nuget.commandline',
     'office365proplus',
     'r.project',
