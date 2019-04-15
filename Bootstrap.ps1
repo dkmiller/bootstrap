@@ -50,6 +50,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
     'nugetpackageexplorer',
     'nuget.commandline',
     'office365proplus',
+    'powershell-core',
     'r.project',
     'r.studio',
     'vscode',
