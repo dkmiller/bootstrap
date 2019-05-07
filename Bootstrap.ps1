@@ -63,4 +63,4 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 }
 
 choco install --yes --fail-on-standard-error anaconda3 --params '/InstallationType:AllUsers /AddToPath:1 /RegisterPython:1'
-choco install --yes --fail-on-standard-error visualstudio2017enterprise --params '--allWorkloads --includeRecommended --includeOptional --passive'
+choco install --yes --fail-on-standard-error visualstudio2019enterprise --params '--allWorkloads --includeRecommended --includeOptional --passive'
