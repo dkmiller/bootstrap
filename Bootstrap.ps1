@@ -39,7 +39,6 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
     'docker-desktop',
     'dotnetcore-sdk',
     'fiddler',
-    'firacode',
     'git',
     'googlechrome',
     'ilspy',
