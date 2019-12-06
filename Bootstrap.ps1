@@ -35,8 +35,10 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 # See https://chocolatey.org/packages/<package name> for more details on any of these.
 @(
     'adobereader',
+    'cuda',
     'docfx',
     'docker-desktop',
+    # This picks up the latest version of the .NET Core SDK.
     'dotnetcore-sdk',
     'fiddler',
     'git',
@@ -45,7 +47,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
     'jdk8',
     'linqpad',
     'microsoft-teams',
-    'netfx-4.7.1-devpack',
+    'netfx-4.8-devpack',
     'nugetpackageexplorer',
     'nuget.commandline',
     'office365proplus',
