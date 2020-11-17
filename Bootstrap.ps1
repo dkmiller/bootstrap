@@ -29,38 +29,27 @@ $ErrorActionPreference = 'Stop'
     Get-AppxPackage "*$_*" | Remove-AppxPackage -ErrorAction SilentlyContinue
 }
 
-# Follow: https://chocolatey.org/docs/installation.
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
-# See https://chocolatey.org/packages/<package name> for more details on any of these.
+# See below for more packages:
+# https://github.com/microsoft/winget-pkgs/
 @(
-    'adobereader',
-    'cuda',
-    'docfx',
-    'docker-desktop',
-    # This picks up the latest version of the .NET Core SDK.
-    'dotnetcore-sdk',
-    'git',
-    'ilspy',
-    'jdk8',
-    'linqpad6.portable',
-    'microsoft-teams',
-    'microsoft-windows-terminal',
-    'netfx-4.8-devpack',
-    'nugetpackageexplorer',
-    'nuget.commandline',
-    'office365proplus',
-    'powershell-preview',
-    'r.project',
-    'r.studio',
-    'vscode',
-    'vscode-csharp',
-    'vscode-docker',
-    'vscode-powershell'
+    'Adobe.AdobeAcrobatReaderDC',
+    'Anaconda.Miniconda3',
+    'Docker.DockerDesktop',
+    'Git.Git',
+    'Google.Chrome',
+    'LINQPad.LINQPad',
+    'Microsoft.AzureCli',
+    'Microsoft.dotnet',
+    'Microsoft.Edge',
+    'Microsoft.Powershell',
+    'Microsoft.Teams',
+    'Microsoft.WindowsTerminal',
+    'Microsoft.VisualStudioCode',
+    'Microsoft.VisualStudio.Enterprise',
+    'Nvidia.GeForceExperience',
+    'Postman.Postman'
 ) | ForEach-Object {
-    choco install --yes --fail-on-standard-error $_
-    refreshenv
+    Write-Host "Installing $_"
+    # https://docs.microsoft.com/en-us/windows/package-manager/winget/install
+    winget install --id $_ --exact
 }
-
-choco install --yes --fail-on-standard-error miniconda3 --params '/AddToPath:1 /RegisterPython:1'
-choco install --yes --fail-on-standard-error visualstudio2019enterprise --params '--allWorkloads --includeRecommended --includeOptional --passive'
