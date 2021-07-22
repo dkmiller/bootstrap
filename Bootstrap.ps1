@@ -8,8 +8,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iwr https://raw.githubusercont
 param(
     $Root = "C:\src",
     $Repo = "bootstrap",
-    # TODO: update this
-    $Branch = "vnext"
+    $Branch = "main"
 )
 
 # Fail on an error.

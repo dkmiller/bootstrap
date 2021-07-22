@@ -5,8 +5,11 @@ function prompt {
 }
 
 function bootstrap {
+    param(
+        $Branch = "main"
+    )
     Set-ExecutionPolicy Bypass -Scope Process -Force
-    Invoke-WebRequest https://raw.githubusercontent.com/dkmiller/bootstrap/vnext/Bootstrap.ps1 | Invoke-Expression
+    Invoke-WebRequest https://raw.githubusercontent.com/dkmiller/bootstrap/$Branch/Bootstrap.ps1 | Invoke-Expression
 }
 
 function Clear-GitRepo {
