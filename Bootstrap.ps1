@@ -2,7 +2,7 @@
 In an elevated shell, execute the following command to download and
 run this script:
 
-Set-ExecutionPolicy Bypass -Scope Process -Force; iwr https://raw.githubusercontent.com/dkmiller/bootstrap/vnext/Bootstrap.ps1 | iex
+Set-ExecutionPolicy Bypass -Scope Process -Force; iwr https://raw.githubusercontent.com/dkmiller/bootstrap/main/Bootstrap.ps1 | iex
 #>
 
 param(
