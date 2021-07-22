@@ -1,66 +1,48 @@
 <#
-This script may be reached via: https://aka.ms/danmill/bootstrap .
-
 In an elevated shell, execute the following command to download and
 run this script:
 
-Set-ExecutionPolicy Bypass -Scope Process -Force; iwr https://aka.ms/danmill/bootstrap | iex
+Set-ExecutionPolicy Bypass -Scope Process -Force; iwr https://raw.githubusercontent.com/dkmiller/bootstrap/vnext/Bootstrap.ps1 | iex
 #>
 
+param(
+    $Root = "C:\src",
+    $Repo = "bootstrap",
+    $Branch = "main"
+)
+
 # Fail on an error.
-$ErrorActionPreference = 'Stop'
+$ErrorActionPreference = "Stop"
 
-# Remove bloatware.
-@(
-    'bubblewitch',
-    'candycrush',
-    'disney',
-    'hiddencity',
-    'officehub',
-    'getstarted',
-    'zunemusic',
-    'windowsmaps',
-    'solitairecollection',
-    'zunevideo',
-    'bingnews',
-    'bingweather',
-    'xboxapp'
-) | ForEach-Object {
-    Get-AppxPackage "*$_*" | Remove-AppxPackage -ErrorAction SilentlyContinue
+Write-Host "Hi from the boostrap!"
+
+if (!(Get-Command git)) {
+    Write-Warning "Git is not installed, doing so"
+    winget install --id Git.Git --exact
 }
 
-# Follow: https://chocolatey.org/docs/installation.
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+mkdir -Force $Root
 
-# See https://chocolatey.org/packages/<package name> for more details on any of these.
-@(
-    'adobereader',
-    'cuda',
-    'docfx',
-    'docker-desktop',
-    # This picks up the latest version of the .NET Core SDK.
-    'dotnetcore-sdk',
-    'git',
-    'ilspy',
-    'jdk8',
-    'linqpad6.portable',
-    'microsoft-teams',
-    'microsoft-windows-terminal',
-    'netfx-4.8-devpack',
-    'nugetpackageexplorer',
-    'nuget.commandline',
-    'office365proplus',
-    'powershell-preview',
-    'r.project',
-    'r.studio',
-    'vscode',
-    'vscode-csharp',
-    'vscode-docker',
-    'vscode-powershell'
-) | ForEach-Object {
-    choco install --yes --fail-on-standard-error $_
-    refreshenv
+$Current = $PWD
+
+try {
+    Set-Location $Root
+
+    if (!(Test-Path $Repo)) {
+        Write-Warning "$Repo repo is not already cloned, doing so"
+        git clone https://github.com/dkmiller/$($Repo).git
+    }
+
+    Set-Location $Repo
+    git checkout $Branch
+    git pull
+
+    # https://stackoverflow.com/a/35813307
+    $ProfileFile = Split-Path $PROFILE -Leaf
+
+    # https://stackoverflow.com/a/34905638
+    New-Item -Path $PROFILE -ItemType SymbolicLink -Value $Root\$Repo\$ProfileFile -Force
 }
-
-choco install --yes --fail-on-standard-error miniconda3 --params '/AddToPath:1 /RegisterPython:1'
-choco install --yes --fail-on-standard-error visualstudio2019enterprise --params '--allWorkloads --includeRecommended --includeOptional --passive'
+finally {
+    Set-Location $Current
+}
