@@ -1,9 +1,10 @@
+$Reset = "`e[0m"
+
 # https://stackoverflow.com/a/44411205
 function Get-BranchName {
     # https://en.wikipedia.org/wiki/ANSI_escape_code
     $Blue = "`e[94m"
     $Red = "`e[31m"
-    $Reset = "`e[0m"
     $Yellow = "`e[93m"
 
     try {
@@ -57,7 +58,10 @@ function Clear-GitRepo {
 
     # https://stackoverflow.com/a/44750379
     $DefaultBranch = git symbolic-ref refs/remotes/origin/HEAD | ForEach-Object { $_.Split("/")[-1] }
-    Write-Warning "Clearning repo assuming default branch $DefaultBranch"
+    $Bold = "`e[1m"
+
+
+    Write-Warning "Clearing repo assuming default branch $Bold$DefaultBranch$Reset"
 
     git checkout $DefaultBranch
     git pull
