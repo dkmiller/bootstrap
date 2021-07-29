@@ -64,6 +64,10 @@ function Clear-GitRepo {
     Write-Warning "Clearing repo assuming default branch $Bold$DefaultBranch$Reset"
 
     git checkout $DefaultBranch
+
+    # https://stackoverflow.com/a/9210705
+    git reset --hard origin/$DefaultBranch
+
     git pull
     git clean -xdf
     git remote prune origin
