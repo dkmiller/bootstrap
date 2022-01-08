@@ -11,6 +11,10 @@ cd ~
 az keyvault secret show --id https://danmill-kv.vault.azure.net/secrets/id-rsa-pub --query value -o tsv > ~/.ssh/id_rsa.pub
 az keyvault secret show --id https://danmill-kv.vault.azure.net/secrets/id-rsa --query value -o tsv > ~/.ssh/id_rsa
 
+# https://unix.stackexchange.com/a/257648
+chmod 600 ~/.ssh/id_rsa
+chmod 600 ~/.ssh/id_rsa.pub
+
 # https://www.techrepublic.com/article/how-to-easily-add-an-ssh-fingerprint-to-your-knownhosts-file-in-linux/
 ssh-keyscan -H vs-ssh.visualstudio.com >> ~/.ssh/known_hosts
 ssh-keyscan -H github.com >> ~/.ssh/known_hosts
